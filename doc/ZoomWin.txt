@@ -1,7 +1,7 @@
-*ZoomWin.txt*	Zoom into/out-of a window		Sep 13, 2013
+*ZoomWin.txt*	Zoom into/out-of a window		Feb 19, 2014
 Authors: Charles E. Campbell				*zoomwin*
          Ron Aaron
-Copyright: (c) 2004-2013 by Charles E. Campbell		*zoomwin-copyright*
+Copyright: (c) 2004-2014 by Charles E. Campbell		*zoomwin-copyright*
            The VIM LICENSE applies to ZoomWin.vim and ZoomWin.txt
            (see |copyright|) except use "ZoomWin" instead of "Vim"
 	   No warranty, express or implied.  Use At-Your-Own-Risk.
@@ -122,6 +122,15 @@ Copyright: (c) 2004-2013 by Charles E. Campbell		*zoomwin-copyright*
 				  removes an |E481| when a count is used with
 				  ZoomWin, and removed a superfluous <script>
 				  modifier to the mapping.
+		Nov 09, 2013	* (Saad Malik) reported that ZoomWin+MiniBufExpl
+				  caused the latter's window to expand after a
+				  zoom-in/out.  techlivezheng provided a fix
+				  to have s:localoptlist include |'wfh'| and
+				  |'wfw'|.
+		Feb 19, 2014	* (Daniel Hahler) ZoomWin needs to save and
+				  restore |'shm'|, setting it to shm+=A to
+				  avoid "ATTENTION" messages when an existing
+				  swap file is involved.
 	v24	Jan 29, 2009	: |g:ZoomWin_funcref| supported
 		May 22, 2009	* supports the saving and restoring of window
 				  variables across zooms
