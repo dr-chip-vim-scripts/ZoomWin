@@ -1,8 +1,8 @@
 " ZoomWin:	Brief-like ability to zoom into/out-of a window
 " Author:	Charles Campbell
 "			original version by Ron Aaron
-" Date:		Jul 19, 2013 
-" Version:	25i	ASTRO-ONLY
+" Date:		Feb 19, 2014 
+" Version:	25l	ASTRO-ONLY
 " History: see :help zoomwin-history {{{1
 " GetLatestVimScripts: 508 1 :AutoInstall: ZoomWin.vim
 
@@ -18,9 +18,9 @@ if v:version < 702
  finish
 endif
 let s:keepcpo        = &cpo
-let g:loaded_ZoomWin = "v25i"
+let g:loaded_ZoomWin = "v25l"
 if !exists("g:zoomwin_localoptlist")
- let s:localoptlist   = ["ai","ar","bh","bin","bl","bomb","bt","cfu","ci","cin","cink","cino","cinw","cms","com","cpt","diff","efm","eol","ep","et","fenc","fex","ff","flp","fo","ft","gp","imi","ims","inde","inex","indk","inf","isk","key","kmp","lisp","mps","ml","ma","mod","nf","ofu","oft","pi","qe","ro","sw","sn","si","sts","spc","spf","spl","sua","swf","smc","syn","ts","tx","tw","udf","wm"]
+ let s:localoptlist   = ["ai","ar","bh","bin","bl","bomb","bt","cfu","ci","cin","cink","cino","cinw","cms","com","cpt","diff","efm","eol","ep","et","fenc","fex","ff","flp","fo","ft","gp","imi","ims","inde","inex","indk","inf","isk","key","kmp","lisp","mps","ml","ma","mod","nf","ofu","oft","pi","qe","ro","sw","sn","si","sts","spc","spf","spl","sua","swf","smc","syn","ts","tx","tw","udf","wfh","wfw","wm"]
 else
  let s:localoptlist   = g:zoomwin_localoptlist
 endif
@@ -265,8 +265,8 @@ fun! ZoomWin#ZoomWin()
 	call g:ZoomWin_funcref(zoomwinstate)
    elseif type(g:ZoomWin_funcref) == 3
     for Fncref in g:ZoomWin_funcref
-     if type(FncRef) == 2
-	  call FncRef(zoomwinstate)
+     if type(Fncref) == 2
+	  call Fncref(zoomwinstate)
      endif
     endfor
    endif
@@ -471,12 +471,13 @@ endfun
 fun! s:SaveUserSettings()
 "  call Dfunc("s:SaveUserSettings()")
 
-  let s:keep_wfh    = &wfh
   let s:keep_hidden = &hidden
-  let s:keep_write  = &write
-  let s:keep_so     = &so
+  let s:keep_shm    = &shm
   let s:keep_siso   = &siso
+  let s:keep_so     = &so
   let s:keep_ss     = &ss
+  let s:keep_wfh    = &wfh
+  let s:keep_write  = &write
   if has("xterm_clipboard")
    let s:keep_star   = @*
   endif
@@ -489,7 +490,7 @@ fun! s:SaveUserSettings()
     sil! set wmh=1 wmw=1
    endif
   endif
-  set hidden write nowfh so=0 siso=0 ss=0
+  set hidden write nowfh so=0 siso=0 ss=0 shm+=A
 "  call Dret("s:SaveUserSettings")
 endfun
 
@@ -499,11 +500,12 @@ fun! s:RestoreUserSettings()
 "  call Dfunc("s:RestoreUserSettings()")
 "  call Decho("restore user option settings")
   let &hidden= s:keep_hidden
-  let &write = s:keep_write
-  let &wfh   = s:keep_wfh
-  let &so    = s:keep_so
+  let &shm   = s:keep_shm
   let &siso  = s:keep_siso
+  let &so    = s:keep_so
   let &ss    = s:keep_ss
+  let &wfh   = s:keep_wfh
+  let &write = s:keep_write
   if has("xterm_clipboard") && exists("s:keep_star")
    let @*     = s:keep_star
   endif
