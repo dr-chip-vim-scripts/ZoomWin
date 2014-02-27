@@ -115,6 +115,7 @@ If you want to collaborate with the latest version and you haven't push access, 
 History
 =======
 
+* Updated Feb 19, 2014 (v25l)
 * Updated Nov 09, 2013 (v25j)
 * November 24, 2013. Start ``dr-chip-vim-scripts`` org.
 
