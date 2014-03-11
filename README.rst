@@ -72,7 +72,7 @@ Extract the vba file
     mkdir zoomwin && cd zoomwin
     wget http://drchip.org/astronaut/vim/vbafiles/ZoomWin.vba.gz
     vim ZoomWin.vba.gz
-        :UseVimBall .
+        :UseVimball .
         :q
     rm ZoomWin.vba.gz .VimballRecord
 
@@ -115,6 +115,7 @@ If you want to collaborate with the latest version and you haven't push access, 
 History
 =======
 
+* Updated Mar 09, 2014 (v25m)
 * Updated Feb 19, 2014 (v25l)
 * Updated Nov 09, 2013 (v25j)
 * November 24, 2013. Start ``dr-chip-vim-scripts`` org.
