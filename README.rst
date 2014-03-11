@@ -72,7 +72,7 @@ Extract the vba file
     mkdir zoomwin && cd zoomwin
     wget http://drchip.org/astronaut/vim/vbafiles/ZoomWin.vba.gz
     vim ZoomWin.vba.gz
-        :UseVimBall .
+        :UseVimball .
         :q
     rm ZoomWin.vba.gz .VimballRecord
 
